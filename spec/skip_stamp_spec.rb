@@ -25,6 +25,10 @@ describe Chicken do
       @chicken.updated_at.should == @last_week
     end
 
+    after do
+      ActiveRecord::Base.record_timestamps = true
+    end
+
   end
 
   describe "if ActiveRecord::Base.record_timestamps is true" do
@@ -67,6 +71,10 @@ describe Chicken do
         @chicken.update_attribute :updated_at, @last_week
       end
       @chicken.updated_at.should == @last_week
+    end
+
+    after do
+      Chicken.record_timestamps = true
     end
 
   end
