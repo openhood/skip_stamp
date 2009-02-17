@@ -4,7 +4,7 @@ Thread-safe way to avoid automatic overriding of created_at, created_on, updated
 
 == Example
 
-def Chickens < ActiveRecord::Base
+def Chicken < ActiveRecord::Base
   def updated_one_week_ago
     skip_stamp{update_attribute :updated_at, 1.week.ago}
   end
